@@ -36,7 +36,7 @@ class text_preprocessing():
     return lemm_text
   
   def remove_numbers(self, text):
-        nonum_text = re.sub(r'[0-9]', '', text)
+        nonum_text = [re.sub(r'[0-9]', '', word) for word in text]
         return nonum_text
 
   def process_f(self,x):
