@@ -34,6 +34,10 @@ class text_preprocessing():
   def lemmatizer(self, text):
     lemm_text = [self.wordnet_lemmatizer.lemmatize(word) for word in text]
     return lemm_text
+  
+  def remove_numbers(self, text):
+        nonum_text = re.sub(r'[0-9]', '', text)
+        return nonum_text
 
   def process_f(self,x):
     a = x[self.column].lower()
@@ -41,5 +45,6 @@ class text_preprocessing():
     c = self.tokenization(b)
     d = self.remove_stopwords(c)
     e = self.lemmatizer(d)
+    f = self.remove_numbers(e)
     
-    return e
+    return f
